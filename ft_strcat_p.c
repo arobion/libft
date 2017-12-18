@@ -1,18 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strcat_p.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arobion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 16:50:48 by arobion           #+#    #+#             */
-/*   Updated: 2017/12/07 15:04:52 by arobion          ###   ########.fr       */
+/*   Created: 2017/11/15 12:38:44 by arobion           #+#    #+#             */
+/*   Updated: 2017/11/16 12:21:09 by arobion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+char	*ft_strcat_p(char *dest, const char *src)
 {
-	write(1, &c, 1);
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	if (dest && src)
+	{
+		while (dest[i] != '\0')
+			i++;
+		while (src[j] != '\0')
+		{
+			dest[i] = src[j];
+			i++;
+			j++;
+		}
+		if (src[j] == '\0')
+			dest[i] = src[j];
+		return (dest);
+	}
+	return (NULL);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iota.c                                          :+:      :+:    :+:   */
+/*   ft_long_itoa.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arobion <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: arobion <arobion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 17:11:55 by arobion           #+#    #+#             */
-/*   Updated: 2017/11/28 12:45:49 by arobion          ###   ########.fr       */
+/*   Created: 2017/11/29 22:28:06 by arobion           #+#    #+#             */
+/*   Updated: 2017/11/30 10:25:27 by arobion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count(int n)
+static int	count(long long n)
 {
 	int		i;
 
@@ -27,7 +27,7 @@ static int	count(int n)
 	return (i);
 }
 
-static void	ft_neg(char *str, int i, int n)
+static void	ft_neg(char *str, int i, long long n)
 {
 	str[0] = '-';
 	str[i] = '\0';
@@ -40,7 +40,7 @@ static void	ft_neg(char *str, int i, int n)
 	}
 }
 
-static void	ft_pos(char *str, int i, int n)
+static void	ft_pos(char *str, int i, long long n)
 {
 	str[i] = '\0';
 	i--;
@@ -52,7 +52,7 @@ static void	ft_pos(char *str, int i, int n)
 	}
 }
 
-char		*ft_itoa(int n)
+char		*ft_long_itoa(long long n)
 {
 	char	*str;
 	int		i;

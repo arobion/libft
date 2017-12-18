@@ -6,15 +6,29 @@
 #    By: arobion <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/12 11:23:12 by arobion           #+#    #+#              #
-#    Updated: 2017/11/13 16:59:50 by arobion          ###   ########.fr        #
+#    Updated: 2017/12/14 18:53:00 by arobion          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc -c -Wall -Werror -Wextra
+CC = gcc 
+
+CFLAGS = -c -Wall -Werror -Wextra
 
 NAME = libft.a
 
-SRCS =	ft_sorttab_char.c \
+SRCS =	ft_count_unsigned_var.c \
+		ft_decim.c \
+		ft_wputchar.c \
+		ft_ctoi.c \
+		ft_long_itoa.c \
+		ft_long_atoi.c \
+		ft_unsigned_itoa.c \
+		ft_putlong.c \
+		ft_strcat_p.c \
+		ft_strlen_at_p.c \
+		ft_strcpy_p.c \
+		ft_strlen_p.c \
+		ft_sorttab_char.c \
 		ft_count_word.c \
 		ft_puttab.c \
 		ft_sorttab.c \
@@ -80,85 +94,28 @@ SRCS =	ft_sorttab_char.c \
 		ft_tolower.c \
 		ft_toupper.c \
 
-POINTO =	ft_sorttab_char.o \
-			ft_count_word.o \
-			ft_puttab.o \
-			ft_sorttab.o \
-			ft_atoi.o \
-			ft_iswp.o \
-			ft_swap.o \
-			ft_strcap.o \
-			ft_bzero.o	\
-			ft_isalnum.o \
-			ft_isalpha.o \
-			ft_isascii.o \
-			ft_isdigit.o \
-			ft_isprint.o \
-			ft_itoa.o \
-			ft_lstadd.o \
-			ft_lstdel.o \
-			ft_lstdelone.o \
-			ft_lstiter.o \
-			ft_lstmap.o \
-			ft_lstnew.o \
-			ft_memalloc.o \
-			ft_memccpy.o \
-			ft_memchr.o \
-			ft_memcmp.o \
-			ft_memcpy.o \
-			ft_memdel.o \
-			ft_memmove.o \
-			ft_memset.o \
-			ft_putchar.o \
-			ft_putchar_fd.o \
-			ft_putendl.o \
-			ft_putendl_fd.o \
-			ft_putnbr.o \
-			ft_putnbr_fd.o \
-			ft_putstr.o \
-			ft_putstr_fd.o \
-			ft_strcat.o \
-			ft_strchr.o \
-			ft_strclr.o \
-			ft_strcmp.o \
-			ft_strcpy.o \
-			ft_strdel.o \
-			ft_strdup.o \
-			ft_strequ.o \
-			ft_striter.o \
-			ft_striteri.o \
-			ft_strjoin.o \
-			ft_strlcat.o \
-			ft_strlen.o \
-			ft_strmap.o \
-			ft_strmapi.o \
-			ft_strncat.o \
-			ft_strncmp.o \
-			ft_strncpy.o \
-			ft_strnequ.o \
-			ft_strnew.o \
-			ft_strnstr.o \
-			ft_strrchr.o \
-			ft_strsplit.o \
-			ft_strstr.o \
-			ft_strsub.o \
-			ft_strtrim.o \
-			ft_tolower.o \
-			ft_toupper.o \
+OBJ = $(SRCS:.c=.o)
 
-INCLUDES = libft.h
+RED = \033[31m
+GREEN = \033[32m
+END = \033[0m
 
 all: $(NAME)
 
-$(NAME):
-	$(CC) $(SRCS) -I $(INCLUDES)
-	ar rc libft.a $(POINTO)
-	ranlib libft.a
+$(NAME): $(OBJ)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
+	@echo "$(GREEN)LIBFT READY$(END)"
+
+%.o: %.c
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
-	/bin/rm -f $(POINTO)
+	/bin/rm -f $(OBJ)
+	@echo "$(RED)LIBFT OBJECTS REMOVE$(END)"
 
 fclean: clean
-	/bin/rm -f libft.a
+	/bin/rm -f $(NAME)
+	@echo "$(RED)LIBFT.A REMOVE$(END)"
 
 re: fclean all

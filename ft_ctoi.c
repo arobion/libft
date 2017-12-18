@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcap.c                                        :+:      :+:    :+:   */
+/*   ft_ctoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arobion <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: arobion <arobion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/12 16:15:13 by arobion           #+#    #+#             */
-/*   Updated: 2017/12/01 10:35:05 by arobion          ###   ########.fr       */
+/*   Created: 2017/12/06 16:24:21 by arobion           #+#    #+#             */
+/*   Updated: 2017/12/15 18:03:17 by arobion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strcap(char *s)
+int		*ft_ctoi(char *str)
 {
+	int		*ret;
+	int		j;
 	int		i;
 
 	i = 0;
-	if (s)
+	if (str)
 	{
-		while (s[i] != '\0')
-		{
-			if (s[i] >= 'a' && s[i] <= 'z')
-				s[i] = s[i] - 32;
+		while (str[i] != 0)
 			i++;
+		j = 0;
+		if (!(ret = malloc(sizeof(int) * i + 1)))
+			return (NULL);
+		while (str[j] != '\0')
+		{
+			ret[j] = str[j];
+			j++;
 		}
+		ret[j] = 0;
+		return (ret);
 	}
+	return (NULL);
 }

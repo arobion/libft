@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlen_at_p.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arobion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 16:50:48 by arobion           #+#    #+#             */
-/*   Updated: 2017/12/07 15:04:52 by arobion          ###   ########.fr       */
+/*   Created: 2017/11/15 13:55:17 by arobion           #+#    #+#             */
+/*   Updated: 2017/11/15 14:07:24 by arobion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+size_t	ft_strlen_at_p(const char *s, int c)
 {
-	write(1, &c, 1);
+	unsigned int	i;
+
+	i = 0;
+	if (s)
+	{
+		while (s[i] != '\0' && s[i] != (char)c)
+			i++;
+		return ((size_t)i);
+	}
+	return (0);
 }

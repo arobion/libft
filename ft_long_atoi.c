@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_long_atoi.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arobion <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: arobion <arobion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/07 18:17:09 by arobion           #+#    #+#             */
-/*   Updated: 2017/11/28 16:07:01 by arobion          ###   ########.fr       */
+/*   Created: 2017/11/28 16:05:41 by arobion           #+#    #+#             */
+/*   Updated: 2017/11/28 16:08:02 by arobion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	sign(int *i, const char *str)
+static long long	sign(long long *i, const char *str)
 {
 	if (str[*i] == '-')
 	{
@@ -24,11 +24,11 @@ static int	sign(int *i, const char *str)
 	return (1);
 }
 
-static int	ft_over(const char *str)
+static long long	ft_over(const char *str)
 {
-	int			i;
-	int			s;
-	int			j;
+	long long			i;
+	long long			s;
+	long long			j;
 
 	j = 0;
 	i = 0;
@@ -50,11 +50,11 @@ static int	ft_over(const char *str)
 		return (1);
 }
 
-int			ft_atoi(const char *str)
+long long			ft_long_atoi(const char *str)
 {
-	int		i;
-	int		res;
-	int		s;
+	long long		i;
+	long long		res;
+	long long		s;
 
 	i = 0;
 	res = 0;

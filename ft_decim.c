@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_decim.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arobion <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: arobion <arobion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 16:50:48 by arobion           #+#    #+#             */
-/*   Updated: 2017/12/07 15:04:52 by arobion          ###   ########.fr       */
+/*   Created: 2017/12/08 19:04:23 by arobion           #+#    #+#             */
+/*   Updated: 2017/12/08 19:05:18 by arobion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+int		ft_decim(char *str)
 {
-	write(1, &c, 1);
+	int		nb;
+	int		i;
+
+	i = 0;
+	nb = 0;
+	while (str[i] != '\0')
+	{
+		nb = nb * 2 + str[i] - '0';
+		i++;
+	}
+	return (nb);
 }

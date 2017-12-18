@@ -6,7 +6,7 @@
 /*   By: arobion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 11:07:06 by arobion           #+#    #+#             */
-/*   Updated: 2017/11/13 12:55:13 by arobion          ###   ########.fr       */
+/*   Updated: 2017/12/11 19:33:34 by arobion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,18 @@ typedef struct	s_list
 	size_t			content_size;
 	struct s_list	*next;
 }				t_list;
+
+int				ft_count_unsigned_var(unsigned long int var);
+int				ft_decim(char *str);
+int				ft_wputchar(int c);
+int				*ft_ctoi(char *str);
+char			*ft_long_itoa(long long n);
+long long		ft_long_atoi(const char *str);
+void			ft_putlong(long long n);
+size_t			ft_strlen_at_p(const char *s, int c);
+char			*ft_strcat_p(char *dest, const char *src);
+char			*ft_strcpy_p(char *dest, const char *src);
+size_t			ft_strlen_p(const char *s);
 void			ft_sorttab_char(char **tab_char);
 int				ft_count_word(char const *s, int c);
 void			ft_puttab(char **s);
@@ -59,6 +71,7 @@ int				ft_isprint(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 char			*ft_itoa(int n);
+char			*ft_unsigned_itoa(unsigned long int n);
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
 void			ft_putendl(char const *s);

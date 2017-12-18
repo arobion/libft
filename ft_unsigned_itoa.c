@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iota.c                                          :+:      :+:    :+:   */
+/*   ft_unsigned_itoa.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arobion <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: arobion <arobion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 17:11:55 by arobion           #+#    #+#             */
-/*   Updated: 2017/11/28 12:45:49 by arobion          ###   ########.fr       */
+/*   Created: 2017/11/28 12:44:03 by arobion           #+#    #+#             */
+/*   Updated: 2017/12/14 18:54:53 by arobion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count(int n)
+static int	count(unsigned long int n)
 {
 	int		i;
 
 	i = 1;
-	if (n < 0)
-		i++;
-	while (n >= 10 || n <= -10)
+	while (n >= 10)
 	{
 		n = n / 10;
 		i++;
@@ -27,24 +25,11 @@ static int	count(int n)
 	return (i);
 }
 
-static void	ft_neg(char *str, int i, int n)
-{
-	str[0] = '-';
-	str[i] = '\0';
-	i--;
-	while (n < 0)
-	{
-		str[i] = ((n % 10) * -1) + '0';
-		i--;
-		n = n / 10;
-	}
-}
-
-static void	ft_pos(char *str, int i, int n)
+static void	ft_pos(char *str, int i, unsigned long int n)
 {
 	str[i] = '\0';
 	i--;
-	while (n > 0)
+	while (n != 0)
 	{
 		str[i] = (n % 10) + '0';
 		i--;
@@ -52,7 +37,7 @@ static void	ft_pos(char *str, int i, int n)
 	}
 }
 
-char		*ft_itoa(int n)
+char		*ft_unsigned_itoa(unsigned long int n)
 {
 	char	*str;
 	int		i;
@@ -68,9 +53,6 @@ char		*ft_itoa(int n)
 	}
 	if (!(str = malloc(sizeof(char) * (i + 1))))
 		return (NULL);
-	if (n < 0)
-		ft_neg(str, i, n);
-	else
-		ft_pos(str, i, n);
+	ft_pos(str, i, n);
 	return (str);
 }
